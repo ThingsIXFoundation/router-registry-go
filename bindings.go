@@ -31,15 +31,18 @@ var (
 
 // IRouterRegistryRouter is an auto generated low-level Go binding around an user-defined struct.
 type IRouterRegistryRouter struct {
-	Id       [32]byte
-	Owner    common.Address
-	Networks []*big.Int
-	Endpoint string
+	Id            [32]byte
+	Owner         common.Address
+	Netid         *big.Int
+	Prefix        uint32
+	Mask          uint8
+	FrequencyPlan uint8
+	Endpoint      string
 }
 
 // RouterRegistryMetaData contains all meta data concerning the RouterRegistry contract.
 var RouterRegistryMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"manager\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"RouterRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"RouterRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"RouterUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ROUTER_REGISTERER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ROUTER_REMOVER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ROUTER_UPDATE_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TRUSTED_FORWARDER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint24[]\",\"name\":\"networks\",\"type\":\"uint24[]\"},{\"internalType\":\"string\",\"name\":\"endpoint\",\"type\":\"string\"}],\"name\":\"register\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"remove\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"routerCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"routers\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint24[]\",\"name\":\"networks\",\"type\":\"uint24[]\"},{\"internalType\":\"string\",\"name\":\"endpoint\",\"type\":\"string\"}],\"internalType\":\"structIRouterRegistry.Router\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"start\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"end\",\"type\":\"uint256\"}],\"name\":\"routersPaged\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint24[]\",\"name\":\"networks\",\"type\":\"uint24[]\"},{\"internalType\":\"string\",\"name\":\"endpoint\",\"type\":\"string\"}],\"internalType\":\"structIRouterRegistry.Router[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint24[]\",\"name\":\"networks\",\"type\":\"uint24[]\"},{\"internalType\":\"string\",\"name\":\"endpoint\",\"type\":\"string\"}],\"name\":\"update\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"manager\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"RouterRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"RouterRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"RouterUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ROUTER_REGISTERER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ROUTER_REMOVER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ROUTER_UPDATE_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TRUSTED_FORWARDER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint24\",\"name\":\"netid\",\"type\":\"uint24\"},{\"internalType\":\"uint32\",\"name\":\"prefix\",\"type\":\"uint32\"},{\"internalType\":\"uint8\",\"name\":\"mask\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"frequencyPlan\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"endpoint\",\"type\":\"string\"}],\"name\":\"register\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"remove\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"routerCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"}],\"name\":\"routers\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint24\",\"name\":\"netid\",\"type\":\"uint24\"},{\"internalType\":\"uint32\",\"name\":\"prefix\",\"type\":\"uint32\"},{\"internalType\":\"uint8\",\"name\":\"mask\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"frequencyPlan\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"endpoint\",\"type\":\"string\"}],\"internalType\":\"structIRouterRegistry.Router\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"start\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"end\",\"type\":\"uint256\"}],\"name\":\"routersPaged\",\"outputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint24\",\"name\":\"netid\",\"type\":\"uint24\"},{\"internalType\":\"uint32\",\"name\":\"prefix\",\"type\":\"uint32\"},{\"internalType\":\"uint8\",\"name\":\"mask\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"frequencyPlan\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"endpoint\",\"type\":\"string\"}],\"internalType\":\"structIRouterRegistry.Router[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"id\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint24\",\"name\":\"netid\",\"type\":\"uint24\"},{\"internalType\":\"uint32\",\"name\":\"prefix\",\"type\":\"uint32\"},{\"internalType\":\"uint8\",\"name\":\"mask\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"frequencyPlan\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"endpoint\",\"type\":\"string\"}],\"name\":\"update\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
 // RouterRegistryABI is the input ABI used to generate the binding from.
@@ -438,7 +441,7 @@ func (_RouterRegistry *RouterRegistryCallerSession) RouterCount() (*big.Int, err
 
 // Routers is a free data retrieval call binding the contract method 0xaa1fce69.
 //
-// Solidity: function routers(bytes32 id) view returns((bytes32,address,uint24[],string))
+// Solidity: function routers(bytes32 id) view returns((bytes32,address,uint24,uint32,uint8,uint8,string))
 func (_RouterRegistry *RouterRegistryCaller) Routers(opts *bind.CallOpts, id [32]byte) (IRouterRegistryRouter, error) {
 	var out []interface{}
 	err := _RouterRegistry.contract.Call(opts, &out, "routers", id)
@@ -455,21 +458,21 @@ func (_RouterRegistry *RouterRegistryCaller) Routers(opts *bind.CallOpts, id [32
 
 // Routers is a free data retrieval call binding the contract method 0xaa1fce69.
 //
-// Solidity: function routers(bytes32 id) view returns((bytes32,address,uint24[],string))
+// Solidity: function routers(bytes32 id) view returns((bytes32,address,uint24,uint32,uint8,uint8,string))
 func (_RouterRegistry *RouterRegistrySession) Routers(id [32]byte) (IRouterRegistryRouter, error) {
 	return _RouterRegistry.Contract.Routers(&_RouterRegistry.CallOpts, id)
 }
 
 // Routers is a free data retrieval call binding the contract method 0xaa1fce69.
 //
-// Solidity: function routers(bytes32 id) view returns((bytes32,address,uint24[],string))
+// Solidity: function routers(bytes32 id) view returns((bytes32,address,uint24,uint32,uint8,uint8,string))
 func (_RouterRegistry *RouterRegistryCallerSession) Routers(id [32]byte) (IRouterRegistryRouter, error) {
 	return _RouterRegistry.Contract.Routers(&_RouterRegistry.CallOpts, id)
 }
 
 // RoutersPaged is a free data retrieval call binding the contract method 0x5c6201eb.
 //
-// Solidity: function routersPaged(uint256 start, uint256 end) view returns((bytes32,address,uint24[],string)[])
+// Solidity: function routersPaged(uint256 start, uint256 end) view returns((bytes32,address,uint24,uint32,uint8,uint8,string)[])
 func (_RouterRegistry *RouterRegistryCaller) RoutersPaged(opts *bind.CallOpts, start *big.Int, end *big.Int) ([]IRouterRegistryRouter, error) {
 	var out []interface{}
 	err := _RouterRegistry.contract.Call(opts, &out, "routersPaged", start, end)
@@ -486,14 +489,14 @@ func (_RouterRegistry *RouterRegistryCaller) RoutersPaged(opts *bind.CallOpts, s
 
 // RoutersPaged is a free data retrieval call binding the contract method 0x5c6201eb.
 //
-// Solidity: function routersPaged(uint256 start, uint256 end) view returns((bytes32,address,uint24[],string)[])
+// Solidity: function routersPaged(uint256 start, uint256 end) view returns((bytes32,address,uint24,uint32,uint8,uint8,string)[])
 func (_RouterRegistry *RouterRegistrySession) RoutersPaged(start *big.Int, end *big.Int) ([]IRouterRegistryRouter, error) {
 	return _RouterRegistry.Contract.RoutersPaged(&_RouterRegistry.CallOpts, start, end)
 }
 
 // RoutersPaged is a free data retrieval call binding the contract method 0x5c6201eb.
 //
-// Solidity: function routersPaged(uint256 start, uint256 end) view returns((bytes32,address,uint24[],string)[])
+// Solidity: function routersPaged(uint256 start, uint256 end) view returns((bytes32,address,uint24,uint32,uint8,uint8,string)[])
 func (_RouterRegistry *RouterRegistryCallerSession) RoutersPaged(start *big.Int, end *big.Int) ([]IRouterRegistryRouter, error) {
 	return _RouterRegistry.Contract.RoutersPaged(&_RouterRegistry.CallOpts, start, end)
 }
@@ -550,25 +553,25 @@ func (_RouterRegistry *RouterRegistryTransactorSession) GrantRole(role [32]byte,
 	return _RouterRegistry.Contract.GrantRole(&_RouterRegistry.TransactOpts, role, account)
 }
 
-// Register is a paid mutator transaction binding the contract method 0x5f46e4b3.
+// Register is a paid mutator transaction binding the contract method 0x9f26fa53.
 //
-// Solidity: function register(bytes32 id, address owner, uint24[] networks, string endpoint) returns()
-func (_RouterRegistry *RouterRegistryTransactor) Register(opts *bind.TransactOpts, id [32]byte, owner common.Address, networks []*big.Int, endpoint string) (*types.Transaction, error) {
-	return _RouterRegistry.contract.Transact(opts, "register", id, owner, networks, endpoint)
+// Solidity: function register(bytes32 id, address owner, uint24 netid, uint32 prefix, uint8 mask, uint8 frequencyPlan, string endpoint) returns()
+func (_RouterRegistry *RouterRegistryTransactor) Register(opts *bind.TransactOpts, id [32]byte, owner common.Address, netid *big.Int, prefix uint32, mask uint8, frequencyPlan uint8, endpoint string) (*types.Transaction, error) {
+	return _RouterRegistry.contract.Transact(opts, "register", id, owner, netid, prefix, mask, frequencyPlan, endpoint)
 }
 
-// Register is a paid mutator transaction binding the contract method 0x5f46e4b3.
+// Register is a paid mutator transaction binding the contract method 0x9f26fa53.
 //
-// Solidity: function register(bytes32 id, address owner, uint24[] networks, string endpoint) returns()
-func (_RouterRegistry *RouterRegistrySession) Register(id [32]byte, owner common.Address, networks []*big.Int, endpoint string) (*types.Transaction, error) {
-	return _RouterRegistry.Contract.Register(&_RouterRegistry.TransactOpts, id, owner, networks, endpoint)
+// Solidity: function register(bytes32 id, address owner, uint24 netid, uint32 prefix, uint8 mask, uint8 frequencyPlan, string endpoint) returns()
+func (_RouterRegistry *RouterRegistrySession) Register(id [32]byte, owner common.Address, netid *big.Int, prefix uint32, mask uint8, frequencyPlan uint8, endpoint string) (*types.Transaction, error) {
+	return _RouterRegistry.Contract.Register(&_RouterRegistry.TransactOpts, id, owner, netid, prefix, mask, frequencyPlan, endpoint)
 }
 
-// Register is a paid mutator transaction binding the contract method 0x5f46e4b3.
+// Register is a paid mutator transaction binding the contract method 0x9f26fa53.
 //
-// Solidity: function register(bytes32 id, address owner, uint24[] networks, string endpoint) returns()
-func (_RouterRegistry *RouterRegistryTransactorSession) Register(id [32]byte, owner common.Address, networks []*big.Int, endpoint string) (*types.Transaction, error) {
-	return _RouterRegistry.Contract.Register(&_RouterRegistry.TransactOpts, id, owner, networks, endpoint)
+// Solidity: function register(bytes32 id, address owner, uint24 netid, uint32 prefix, uint8 mask, uint8 frequencyPlan, string endpoint) returns()
+func (_RouterRegistry *RouterRegistryTransactorSession) Register(id [32]byte, owner common.Address, netid *big.Int, prefix uint32, mask uint8, frequencyPlan uint8, endpoint string) (*types.Transaction, error) {
+	return _RouterRegistry.Contract.Register(&_RouterRegistry.TransactOpts, id, owner, netid, prefix, mask, frequencyPlan, endpoint)
 }
 
 // Remove is a paid mutator transaction binding the contract method 0x2874528e.
@@ -634,25 +637,25 @@ func (_RouterRegistry *RouterRegistryTransactorSession) RevokeRole(role [32]byte
 	return _RouterRegistry.Contract.RevokeRole(&_RouterRegistry.TransactOpts, role, account)
 }
 
-// Update is a paid mutator transaction binding the contract method 0x5bb5b1e6.
+// Update is a paid mutator transaction binding the contract method 0x20ef6db5.
 //
-// Solidity: function update(bytes32 id, address owner, uint24[] networks, string endpoint) returns()
-func (_RouterRegistry *RouterRegistryTransactor) Update(opts *bind.TransactOpts, id [32]byte, owner common.Address, networks []*big.Int, endpoint string) (*types.Transaction, error) {
-	return _RouterRegistry.contract.Transact(opts, "update", id, owner, networks, endpoint)
+// Solidity: function update(bytes32 id, address owner, uint24 netid, uint32 prefix, uint8 mask, uint8 frequencyPlan, string endpoint) returns()
+func (_RouterRegistry *RouterRegistryTransactor) Update(opts *bind.TransactOpts, id [32]byte, owner common.Address, netid *big.Int, prefix uint32, mask uint8, frequencyPlan uint8, endpoint string) (*types.Transaction, error) {
+	return _RouterRegistry.contract.Transact(opts, "update", id, owner, netid, prefix, mask, frequencyPlan, endpoint)
 }
 
-// Update is a paid mutator transaction binding the contract method 0x5bb5b1e6.
+// Update is a paid mutator transaction binding the contract method 0x20ef6db5.
 //
-// Solidity: function update(bytes32 id, address owner, uint24[] networks, string endpoint) returns()
-func (_RouterRegistry *RouterRegistrySession) Update(id [32]byte, owner common.Address, networks []*big.Int, endpoint string) (*types.Transaction, error) {
-	return _RouterRegistry.Contract.Update(&_RouterRegistry.TransactOpts, id, owner, networks, endpoint)
+// Solidity: function update(bytes32 id, address owner, uint24 netid, uint32 prefix, uint8 mask, uint8 frequencyPlan, string endpoint) returns()
+func (_RouterRegistry *RouterRegistrySession) Update(id [32]byte, owner common.Address, netid *big.Int, prefix uint32, mask uint8, frequencyPlan uint8, endpoint string) (*types.Transaction, error) {
+	return _RouterRegistry.Contract.Update(&_RouterRegistry.TransactOpts, id, owner, netid, prefix, mask, frequencyPlan, endpoint)
 }
 
-// Update is a paid mutator transaction binding the contract method 0x5bb5b1e6.
+// Update is a paid mutator transaction binding the contract method 0x20ef6db5.
 //
-// Solidity: function update(bytes32 id, address owner, uint24[] networks, string endpoint) returns()
-func (_RouterRegistry *RouterRegistryTransactorSession) Update(id [32]byte, owner common.Address, networks []*big.Int, endpoint string) (*types.Transaction, error) {
-	return _RouterRegistry.Contract.Update(&_RouterRegistry.TransactOpts, id, owner, networks, endpoint)
+// Solidity: function update(bytes32 id, address owner, uint24 netid, uint32 prefix, uint8 mask, uint8 frequencyPlan, string endpoint) returns()
+func (_RouterRegistry *RouterRegistryTransactorSession) Update(id [32]byte, owner common.Address, netid *big.Int, prefix uint32, mask uint8, frequencyPlan uint8, endpoint string) (*types.Transaction, error) {
+	return _RouterRegistry.Contract.Update(&_RouterRegistry.TransactOpts, id, owner, netid, prefix, mask, frequencyPlan, endpoint)
 }
 
 // RouterRegistryRoleAdminChangedIterator is returned from FilterRoleAdminChanged and is used to iterate over the raw logs and unpacked data for RoleAdminChanged events raised by the RouterRegistry contract.
